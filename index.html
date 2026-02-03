@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platinum Fortune Suite</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #D4AF37;
+      --gold-light: #FFF7AD;
+      --gold-dark: #B8860B;
+      --midnight: #0F0C29;
+      --purple: #302B63;
+      --exclusive: #E0A7FF;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at center, #24243E 0%, #1a1a2e 50%, #0F0C29 100%);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      color: white;
+    }
+    h1, h2, h3, .luxury-text {
+      font-family: 'Playfair Display', serif;
+    }
+    @keyframes gold-shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    .shimmer-text {
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold), var(--gold-dark), var(--gold));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gold-shimmer 3s linear infinite;
+    }
+    .gold-border {
+      border: 2px solid transparent;
+      background: linear-gradient(#0F0C29, #0F0C29) padding-box,
+                  linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold)) border-box;
+    }
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+    .confetti {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      animation: fall 4s linear forwards;
+    }
+    .clip-path-pointer {
+      clip-path: polygon(50% 100%, 0% 0%, 100% 0%);
+    }
+    /* Modal animations */
+    .animate-reveal {
+      animation: reveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @keyframes reveal {
+      0% { transform: scale(0.8) translateY(40px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    @keyframes shimmer-sweep {
+      0% { transform: translateX(-200%) skewX(-12deg); }
+      100% { transform: translateX(200%) skewX(-12deg); }
+    }
+    .sweep-overlay {
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      animation: shimmer-sweep 2.5s infinite;
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/"
+  }
+}
+</script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
